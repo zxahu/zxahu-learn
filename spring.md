@@ -60,16 +60,19 @@ methodMatcher有2中实现：由方法匹配器的inRuntime()来决定
 如果bean使用了destory-method属性或实现了
 
 ## 动态代理
-### 理模式的角色
-1. Subject : 负责定义RealSubject和Proxy应该实现的接口   
-2. RealSubject : 真正完成业务服务的功能
-3. Proxy : 接收请求，并调研RealSubject的方法来实现特定功能
+### 动态代理的定义
+利用java反射计数，在运行时创建一个实现某些给定接口的类及其实例
 
 ### 代理的种类
 代理类的主要功能，其实就是在调用某个方法前后，做一些额外的业务。实现这个功能有几种办法，一个是静态代理，一个是动态代理。
 
 1. 静态代理：代理类Proxy中的方法，都写死了调用指定某个RealSubject
 2. 动态代理：将自己的方法功能的实现交给InvocationHandler，外界对Proxy角色中的每个方法的调用，Proxy都会交给InvocationHandler来处理，而InvocationHandler则调用具体的角色
+
+### 代理模式的角色
+1. Subject : 负责定义RealSubject和Proxy应该实现的接口
+2. RealSubject : 真正完成业务服务的功能
+3. Proxy : 接收请求，并调研RealSubject的方法来实现特定功能
 
 ### 动态代理的实现
 动态生成的Proxy需要实现RealSubject的所有功能，这样Proxy才能代理RealSubject。在Java中，如果要Proxy要覆盖RealSubject的功能，有2种方式：
