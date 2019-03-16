@@ -21,6 +21,8 @@ TODO
 
 #### g. 对象
 TODO
+#### h. bitmap
+bitmap是redis基于sds实现的一个扩展的数据结构，目前string支持最大的长度为512MB, 则bitmap的最大长度为2^32 = 512MB = 2^29 bytes = 2^32 bits
 
 ### 2. redis键空间
 在redisDb的数据结构中，dict字段维护了所有的键值对，称为键空间
@@ -47,3 +49,9 @@ value : long 型的毫秒精度的unix时间戳，即这个键的失效时间
 
 ##### 4. redis的实际删除策略
 使用定期删除 + 惰性删除 这2种策略搭配的方式来删除键
+
+## 常见问题
+### 布隆过滤器
+布隆过滤器原理：https://www.cnblogs.com/liyulong1982/p/6013002.html
+布隆过滤器应用：[使用redis实现分布式布隆过滤器](https://blog.csdn.net/ncuzengxiebo/article/details/82813900)
+
